@@ -1,1 +1,483 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100609">
+<title>The Beautiful Danger of Wanting You</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+ --bg:#100609;
+ --wine:#360d1d;
+ --red:#a52c4e;
+ --rose:#e7a0ae;
+ --cream:#f4e9e4;
+ --muted:#bba6a5;
+ --gold:#d5b18a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;background:var(--bg);color:var(--cream);
+ font-family:'DM Sans',sans-serif;overflow-x:hidden;
+}
+body:before{
+ content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+ background:
+ radial-gradient(ellipse at 15% 15%,#64152b55,transparent 45%),
+ radial-gradient(ellipse at 85% 80%,#4c142c44,transparent 45%),
+ linear-gradient(135deg,#100609,#190910 55%,#100609);
+}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.particle{
+ position:absolute;width:3px;height:3px;border-radius:50%;
+ background:#e8a1b0;opacity:0;
+ box-shadow:0 0 12px #e8a1b0;
+ animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+ 0%{transform:translateY(15vh) scale(.5);opacity:0}
+ 15%{opacity:.7}
+ 85%{opacity:.5}
+ 100%{transform:translateY(-110vh) scale(1.4);opacity:0}
+}
+button{font:inherit}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+#app{position:relative;z-index:2;min-height:100vh}
+.topbar{
+ position:fixed;z-index:20;top:0;left:0;width:100%;
+ padding:17px 22px;display:flex;justify-content:space-between;
+ align-items:center;background:linear-gradient(#100609dd,transparent);
+}
+.brand{font-size:10px;letter-spacing:4px;color:#d8a7ad}
+.sound{
+ background:#ffffff0c;border:1px solid #ffffff25;color:var(--cream);
+ padding:9px 13px;border-radius:30px;font-size:11px;cursor:pointer;
+}
+.screen{
+ min-height:100svh;display:none;align-items:center;justify-content:center;
+ flex-direction:column;text-align:center;padding:100px 23px 65px;
+ animation:appear .8s ease both;
+}
+.screen.active{display:flex}
+@keyframes appear{
+ from{opacity:0;transform:translateY(18px)}
+ to{opacity:1;transform:translateY(0)}
+}
+.eyebrow{
+ color:var(--gold);font-size:10px;letter-spacing:5px;
+ text-transform:uppercase;margin-bottom:25px;
+}
+h1,h2,h3,.serif{
+ font-family:'Cormorant Garamond',serif;font-weight:400;
+}
+.hero-title{
+ font-size:clamp(48px,11vw,96px);line-height:.91;
+ max-width:850px;margin:0 auto 25px;
+}
+.hero-title em{color:var(--rose);font-weight:400}
+.subtitle{
+ color:var(--muted);font-size:12px;letter-spacing:3px;
+ line-height:2;margin:0 auto 35px;
+}
+.line{
+ width:65px;height:1px;background:var(--gold);
+ margin:23px auto;
+}
+.intro-copy{
+ max-width:490px;color:#d1bcba;line-height:2;
+ font-family:'Cormorant Garamond',serif;font-size:23px;
+}
+.primary{
+ border:1px solid #bd657c;background:linear-gradient(120deg,#6d1834,#a42e50);
+ color:white;padding:15px 28px;border-radius:2px;
+ letter-spacing:2px;text-transform:uppercase;font-size:10px;
+ cursor:pointer;transition:.3s;box-shadow:0 8px 35px #7b173533;
+}
+.primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px #a52c4e55}
+.ghost{
+ background:transparent;color:#d9b5b7;border:1px solid #ffffff30;
+ padding:12px 22px;letter-spacing:2px;font-size:10px;
+ text-transform:uppercase;cursor:pointer;
+}
+.chapter-no{
+ color:var(--gold);font-size:10px;letter-spacing:5px;margin-bottom:20px;
+}
+.chapter-title{
+ font-size:clamp(45px,10vw,76px);line-height:1;
+ margin:0 0 16px;
+}
+.chapter-title em{color:var(--rose)}
+.chapter-sub{
+ font-size:10px;letter-spacing:4px;color:#bd999e;
+ text-transform:uppercase;margin-bottom:35px;
+}
+.chapter-card{
+ max-width:650px;width:100%;padding:35px 25px;
+ border:1px solid #ffffff19;
+ background:linear-gradient(145deg,#ffffff0b,#ffffff03);
+ box-shadow:0 25px 90px #0005;
+ position:relative;overflow:hidden;
+}
+.chapter-card:before{
+ content:"";position:absolute;top:0;left:15%;right:15%;
+ height:1px;background:linear-gradient(90deg,transparent,#c87c8b,transparent);
+}
+.chapter-text{
+ font-family:'Cormorant Garamond',serif;
+ font-size:clamp(23px,5vw,31px);line-height:1.65;
+ color:#f0dfdc;margin:0;
+}
+.chapter-text em{color:var(--rose)}
+.small-note{
+ color:#a98e91;font-size:11px;line-height:1.9;
+ max-width:470px;margin:22px auto 0;
+}
+.controls{
+ display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+ margin-top:30px;
+}
+.progress-wrap{
+ position:fixed;bottom:0;left:0;width:100%;height:2px;
+ background:#ffffff12;z-index:25;
+}
+.progress{height:100%;width:0;background:var(--rose);transition:width .5s}
+.chapter-count{
+ position:fixed;bottom:17px;right:20px;color:#a98e91;
+ font-size:9px;letter-spacing:2px;z-index:25;
+}
+.rose{
+ font-size:42px;margin:0 0 23px;
+ filter:drop-shadow(0 0 20px #a52c4e77);
+ animation:pulse 3s ease-in-out infinite;
+}
+@keyframes pulse{50%{transform:scale(1.12);filter:drop-shadow(0 0 30px #d65b7b)}}
+.quote{
+ font-family:'Cormorant Garamond',serif;font-style:italic;
+ color:var(--rose);font-size:clamp(24px,5vw,34px);
+ margin:28px auto;max-width:600px;line-height:1.4;
+}
+.voice-box{
+ border:1px solid #b85a733d;padding:27px 22px;
+ margin-top:25px;max-width:440px;width:100%;
+ background:#4b142322;
+}
+.voice-box p{color:var(--muted);font-size:12px;line-height:1.8}
+.voice-button{
+ border:1px solid #c77a8d;background:#51182b;color:white;
+ padding:14px 22px;cursor:pointer;letter-spacing:2px;font-size:10px;
+}
+.ending{
+ font-size:clamp(30px,7vw,48px);line-height:1.3;
+ max-width:700px;
+}
+.ending em{color:var(--rose)}
+.footer-note{
+ margin-top:42px;color:#8e7378;font-size:9px;letter-spacing:3px;
+}
+@media(max-width:480px){
+ .chapter-card{padding:29px 20px}
+ .topbar{padding:14px 15px}
+ .screen{padding-left:18px;padding-right:18px}
+}
+</style>
+</head>
+
+<body>
+<div id="particles"></div>
+<div id="app">
+
+<header class="topbar">
+ <div class="brand">A PRIVATE CONFESSION · BY ALI</div>
+ <button class="sound" id="musicBtn" onclick="toggleMusic()">♫ MUSIC OFF</button>
+</header>
+
+<audio id="music" loop>
+ <source src="assets/romantic.mp3" type="audio/mpeg">
+</audio>
+<audio id="voice">
+ <source src="assets/ali-confession.mp3" type="audio/mpeg">
+</audio>
+
+<!-- INTRO -->
+<section class="screen active" id="s0">
+ <div class="eyebrow">Something I haven't told you</div>
+ <h1 class="hero-title">THE BEAUTIFUL<br><em>DANGER</em><br>OF WANTING YOU</h1>
+ <div class="line"></div>
+ <p class="subtitle">A STORY WITHOUT FILTERS · FOR ARESHEY</p>
+ <p class="intro-copy">
+ You have seen the things I can create.<br>
+ But there is something I have kept<br>
+ behind every smile, every joke,<br>
+ and every little compliment.
+ </p>
+ <button class="primary" onclick="go(1)">LET ME SHOW YOU</button>
+ <div class="footer-note">TAKE YOUR TIME · THERE IS NO RUSH</div>
+</section>
+
+<!-- CHAPTER 1 -->
+<section class="screen" id="s1">
+ <div class="chapter-no">CHAPTER 01 · THE TRUTH</div>
+ <h2 class="chapter-title">It started as <em>a joke.</em></h2>
+ <div class="chapter-sub">But it didn't stay that way</div>
+ <div class="chapter-card">
+  <p class="chapter-text">
+   At first, I teased you.<br>
+   I complimented you.<br>
+   I tried to make you smile.<br><br>
+   Then I started remembering the little things.
+   Your words. Your habits. Your favourite things.
+   And somewhere between all those conversations,
+   <em>you became someone I genuinely look forward to.</em>
+  </p>
+ </div>
+ <div class="controls">
+  <button class="primary" onclick="go(2)">THERE'S MORE</button>
+ </div>
+</section>
+
+<!-- CHAPTER 2 -->
+<section class="screen" id="s2">
+ <div class="chapter-no">CHAPTER 02 · THE WANT</div>
+ <h2 class="chapter-title">I <em>want</em> you.</h2>
+ <div class="chapter-sub">No jokes this time</div>
+ <div class="chapter-card">
+  <p class="chapter-text">
+   I want to meet you, Areshey.<br>
+   Not just imagine it.<br>
+   Not just talk about it.<br><br>
+   I want to sit across from you,
+   hear your laughter without a screen,
+   look into your eyes and make memories
+   that we can actually call ours.
+   <em>I want something real with you.</em>
+  </p>
+ </div>
+ <div class="controls">
+  <button class="primary" onclick="go(3)">KEEP GOING</button>
+ </div>
+</section>
+
+<!-- CHAPTER 3 -->
+<section class="screen" id="s3">
+ <div class="chapter-no">CHAPTER 03 · A LITTLE JEALOUS</div>
+ <h2 class="chapter-title">My <em>jealous</em> side.</h2>
+ <div class="chapter-sub">Something I won't pretend about</div>
+ <div class="chapter-card">
+  <p class="chapter-text">
+   Yes, sometimes I get jealous.<br><br>
+   The thought of someone else making you
+   blush, getting that special smile,
+   or receiving the attention I wish
+   I could give you…<br><br>
+   <em>Well, I won't lie. It gets to me.</em><br><br>
+   Not because I own you.
+   Because I want to become someone
+   special to you too.
+  </p>
+ </div>
+ <p class="small-note">A little jealousy. A lot of affection. And always respect for your world.</p>
+ <div class="controls">
+  <button class="primary" onclick="go(4)">SHOW ME MORE</button>
+ </div>
+</section>
+
+<!-- CHAPTER 4 -->
+<section class="screen" id="s4">
+ <div class="chapter-no">CHAPTER 04 · THE POSSESSION</div>
+ <h2 class="chapter-title">I want to be <em>your person.</em></h2>
+ <div class="chapter-sub">Not a passing moment</div>
+ <div class="chapter-card">
+  <p class="chapter-text">
+   I want to be the person you look for
+   when something good happens.<br><br>
+   The person whose messages make you smile.
+   The one who gets to pamper you,
+   tease you, care for you and make you
+   feel wanted.<br><br>
+   I want to hold your hand and pull you
+   a little closer. I want to feel that
+   closeness with you.<br><br>
+   <em>I want us to choose each other.</em>
+  </p>
+ </div>
+ <div class="controls">
+  <button class="primary" onclick="go(5)">ONE MORE THING</button>
+ </div>
+</section>
+
+<!-- CHAPTER 5 -->
+<section class="screen" id="s5">
+ <div class="chapter-no">CHAPTER 05 · THE VULNERABILITY</div>
+ <h2 class="chapter-title">The side you <em>haven't seen.</em></h2>
+ <div class="chapter-sub">No performance. Just me.</div>
+ <div class="chapter-card">
+  <p class="chapter-text">
+   Sometimes I don't know how to put
+   everything I feel into words.<br><br>
+   Sometimes I overthink a message.
+   Sometimes I wonder if I've said enough
+   or if you understand what I mean.<br><br>
+   But I don't want to hide behind
+   clever lines anymore.<br><br>
+   <em>I'm letting you see the real me.</em>
+  </p>
+ </div>
+ <div class="controls">
+  <button class="primary" onclick="go(6)">LET ME SAY IT</button>
+ </div>
+</section>
+
+<!-- CHAPTER 6 -->
+<section class="screen" id="s6">
+ <div class="chapter-no">CHAPTER 06 · THE CONFESSION</div>
+ <div class="rose">🥀</div>
+ <h2 class="chapter-title">This is <em>my heart.</em></h2>
+ <div class="chapter-sub">For once, without hiding</div>
+ <div class="chapter-card">
+  <p class="chapter-text">
+   Areshey, I like you.<br><br>
+   More than my teasing ever revealed.
+   More than my compliments ever explained.
+   More than I have had the courage to say.<br><br>
+   I want to know you deeply.
+   I want to meet you.
+   I want to make you feel loved,
+   appreciated and wanted.<br><br>
+   <em>I'm not hiding my feelings anymore.</em>
+  </p>
+ </div>
+ <div class="controls">
+  <button class="primary" onclick="go(7)">THERE'S ONE LAST THING</button>
+ </div>
+</section>
+
+<!-- CHAPTER 7 -->
+<section class="screen" id="s7">
+ <div class="chapter-no">CHAPTER 07 · THE VOICE</div>
+ <div class="rose">♥</div>
+ <h2 class="chapter-title">Now hear <em>me.</em></h2>
+ <div class="chapter-sub">Not a character. Not a story. Ali.</div>
+ <div class="chapter-card">
+  <p class="chapter-text">
+   You have read my words.<br>
+   You have seen my imagination.<br><br>
+   But I want you to hear the person
+   behind all of it.
+  </p>
+ </div>
+ <div class="voice-box">
+  <p>There's something I want to say in my own voice.</p>
+  <button class="voice-button" onclick="playVoice()">▶ PLAY MY CONFESSION</button>
+  <p id="voiceStatus">A little piece of my heart, in my own voice.</p>
+ </div>
+ <div class="controls">
+  <button class="primary" onclick="go(8)">THE LAST PAGE</button>
+ </div>
+</section>
+
+<!-- ENDING -->
+<section class="screen" id="s8">
+ <div class="eyebrow">The last page · But not the end</div>
+ <div class="rose">🌹</div>
+ <h2 class="ending serif">
+  I don't want to keep writing beautiful stories about you.<br><br>
+  <em>I want the chance to live one with you.</em>
+ </h2>
+ <div class="line"></div>
+ <p class="intro-copy">
+  I've shown you the side of me that jokes,
+  the side that creates little universes,
+  and now the side that wants you in his real world.
+ </p>
+ <p class="quote">"This time, you haven't just seen what I can create. You've seen what I feel."</p>
+ <p class="subtitle">WITH ALL THE HONESTY I HAVE · ALI</p>
+ <div class="footer-note">THE BEAUTIFUL DANGER OF WANTING YOU</div>
+ <div class="controls">
+  <button class="ghost" onclick="go(0)">EXPERIENCE AGAIN</button>
+ </div>
+</section>
+
+<div class="progress-wrap"><div class="progress" id="progress"></div></div>
+<div class="chapter-count" id="counter">INTRO</div>
+</div>
+
+<script>
+const total=8;
+let current=0;
+const music=document.getElementById('music');
+const voice=document.getElementById('voice');
+const musicBtn=document.getElementById('musicBtn');
+
+function go(n){
+ document.getElementById('s'+current).classList.remove('active');
+ current=n;
+ const next=document.getElementById('s'+current);
+ next.classList.remove('active');
+ void next.offsetWidth;
+ next.classList.add('active');
+ document.getElementById('progress').style.width=(n/total*100)+'%';
+ document.getElementById('counter').textContent=
+ n===0?'INTRO':n===8?'THE LAST PAGE':'CHAPTER '+String(n).padStart(2,'0')+' / 07';
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+
+async function toggleMusic(){
+ if(music.paused){
+  try{
+   await music.play();
+   musicBtn.textContent='♫ MUSIC ON';
+  }catch(e){
+   musicBtn.textContent='♫ ADD MUSIC FILE';
+  }
+ }else{
+  music.pause();
+  musicBtn.textContent='♫ MUSIC OFF';
+ }
+}
+
+async function playVoice(){
+ const status=document.getElementById('voiceStatus');
+ try{
+  if(voice.paused){
+   await voice.play();
+   status.textContent='Playing… listen with your heart.';
+  }else{
+   voice.pause();
+   status.textContent='Paused.';
+  }
+ }catch(e){
+  status.textContent='Add your recording at assets/ali-confession.mp3';
+ }
+}
+voice.addEventListener('ended',()=>{
+ document.getElementById('voiceStatus').textContent='That was me, Areshey. ❤️';
+});
+
+// Floating cinematic particles
+const particleArea=document.getElementById('particles');
+for(let i=0;i<32;i++){
+ const p=document.createElement('span');
+ p.className='particle';
+ p.style.left=Math.random()*100+'%';
+ p.style.bottom=(-Math.random()*100)+'px';
+ p.style.animationDuration=(9+Math.random()*14)+'s';
+ p.style.animationDelay=(-Math.random()*18)+'s';
+ p.style.opacity=Math.random()*.6;
+ particleArea.appendChild(p);
+}
+
+// Stop background music when voice confession starts
+voice.addEventListener('play',()=>{
+ if(!music.paused)music.pause();
+ musicBtn.textContent='♫ MUSIC OFF';
+});
+</script>
+</body>
+</html>
+
