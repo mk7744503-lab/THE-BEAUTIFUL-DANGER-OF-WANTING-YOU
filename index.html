@@ -4,480 +4,523 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#100609">
-<title>The Beautiful Danger of Wanting You</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#100b18">
+<title>The Art of Loving You — By Ali</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap');
+
 :root{
- --bg:#100609;
- --wine:#360d1d;
- --red:#a52c4e;
- --rose:#e7a0ae;
- --cream:#f4e9e4;
- --muted:#bba6a5;
- --gold:#d5b18a;
+ --gold:#e7c697;
+ --pink:#efbfd3;
+ --white:#fff5f6;
+ --muted:#c6b6c7;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
- margin:0;background:var(--bg);color:var(--cream);
- font-family:'DM Sans',sans-serif;overflow-x:hidden;
-}
-body:before{
- content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+ margin:0;min-height:100vh;
+ color:var(--white);
  background:
- radial-gradient(ellipse at 15% 15%,#64152b55,transparent 45%),
- radial-gradient(ellipse at 85% 80%,#4c142c44,transparent 45%),
- linear-gradient(135deg,#100609,#190910 55%,#100609);
+ radial-gradient(ellipse at 50% 0%,#442842 0%,transparent 48%),
+ radial-gradient(ellipse at 0% 100%,#24162d 0%,transparent 48%),
+ #100b18;
+ font-family:Montserrat,sans-serif;
+ overflow-x:hidden;
 }
-#particles{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
-.particle{
- position:absolute;width:3px;height:3px;border-radius:50%;
- background:#e8a1b0;opacity:0;
- box-shadow:0 0 12px #e8a1b0;
- animation:floatUp linear infinite;
+#stars{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.star{
+ position:absolute;width:2px;height:2px;border-radius:50%;
+ background:#fff;opacity:.5;
+ animation:twinkle 3s infinite alternate;
 }
-@keyframes floatUp{
- 0%{transform:translateY(15vh) scale(.5);opacity:0}
- 15%{opacity:.7}
- 85%{opacity:.5}
- 100%{transform:translateY(-110vh) scale(1.4);opacity:0}
+@keyframes twinkle{to{opacity:.1;transform:scale(.5)}}
+#app{
+ position:relative;z-index:1;
+ width:min(700px,92%);min-height:100vh;
+ margin:auto;padding:35px 0 100px;
+ display:flex;flex-direction:column;justify-content:center;
 }
-button{font:inherit}
-button:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
-#app{position:relative;z-index:2;min-height:100vh}
-.topbar{
- position:fixed;z-index:20;top:0;left:0;width:100%;
- padding:17px 22px;display:flex;justify-content:space-between;
- align-items:center;background:linear-gradient(#100609dd,transparent);
-}
-.brand{font-size:10px;letter-spacing:4px;color:#d8a7ad}
-.sound{
- background:#ffffff0c;border:1px solid #ffffff25;color:var(--cream);
- padding:9px 13px;border-radius:30px;font-size:11px;cursor:pointer;
-}
-.screen{
- min-height:100svh;display:none;align-items:center;justify-content:center;
- flex-direction:column;text-align:center;padding:100px 23px 65px;
- animation:appear .8s ease both;
-}
-.screen.active{display:flex}
-@keyframes appear{
- from{opacity:0;transform:translateY(18px)}
- to{opacity:1;transform:translateY(0)}
-}
+.top{text-align:center;margin-bottom:24px}
 .eyebrow{
- color:var(--gold);font-size:10px;letter-spacing:5px;
- text-transform:uppercase;margin-bottom:25px;
+ font-size:9px;letter-spacing:4px;
+ color:var(--gold);text-transform:uppercase;
 }
-h1,h2,h3,.serif{
+h1,h2,.serif{
  font-family:'Cormorant Garamond',serif;font-weight:400;
 }
-.hero-title{
- font-size:clamp(48px,11vw,96px);line-height:.91;
- max-width:850px;margin:0 auto 25px;
+h1{font-size:clamp(50px,12vw,82px);line-height:.9;margin:24px 0}
+h1 em,.accent{color:var(--pink)}
+h2{font-size:clamp(39px,9vw,59px);line-height:1;margin:17px 0 22px}
+.panel{
+ border:1px solid #e7c69745;
+ background:linear-gradient(145deg,#ffffff0d,#ffffff04);
+ border-radius:24px;
+ padding:clamp(25px,6vw,45px);
+ text-align:center;
+ box-shadow:0 25px 80px #0007;
+ backdrop-filter:blur(12px);
 }
-.hero-title em{color:var(--rose);font-weight:400}
-.subtitle{
- color:var(--muted);font-size:12px;letter-spacing:3px;
- line-height:2;margin:0 auto 35px;
+.number{font-size:9px;letter-spacing:4px;color:var(--gold)}
+.copy{
+ color:#e8dce6;font-size:14px;font-weight:300;
+ line-height:2.05;white-space:pre-line;
 }
-.line{
- width:65px;height:1px;background:var(--gold);
- margin:23px auto;
+.line{width:65px;height:1px;background:var(--gold);margin:24px auto}
+.actions{
+ display:flex;justify-content:center;gap:11px;
+ flex-wrap:wrap;margin-top:27px;
 }
-.intro-copy{
- max-width:490px;color:#d1bcba;line-height:2;
- font-family:'Cormorant Garamond',serif;font-size:23px;
+button{
+ color:var(--white);background:transparent;
+ border:1px solid #e7c69788;border-radius:35px;
+ padding:13px 20px;cursor:pointer;
+ font-family:Montserrat,sans-serif;
+ font-size:9px;letter-spacing:1.5px;
+ transition:.25s;
 }
-.primary{
- border:1px solid #bd657c;background:linear-gradient(120deg,#6d1834,#a42e50);
- color:white;padding:15px 28px;border-radius:2px;
- letter-spacing:2px;text-transform:uppercase;font-size:10px;
- cursor:pointer;transition:.3s;box-shadow:0 8px 35px #7b173533;
+button:hover{background:#e7c69718;transform:translateY(-2px)}
+button.primary{
+ color:#211522;background:linear-gradient(110deg,#d5ae7c,#f1d8b7);
+ border:0;font-weight:500;
 }
-.primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px #a52c4e55}
-.ghost{
- background:transparent;color:#d9b5b7;border:1px solid #ffffff30;
- padding:12px 22px;letter-spacing:2px;font-size:10px;
- text-transform:uppercase;cursor:pointer;
-}
-.chapter-no{
- color:var(--gold);font-size:10px;letter-spacing:5px;margin-bottom:20px;
-}
-.chapter-title{
- font-size:clamp(45px,10vw,76px);line-height:1;
- margin:0 0 16px;
-}
-.chapter-title em{color:var(--rose)}
-.chapter-sub{
- font-size:10px;letter-spacing:4px;color:#bd999e;
- text-transform:uppercase;margin-bottom:35px;
-}
-.chapter-card{
- max-width:650px;width:100%;padding:35px 25px;
- border:1px solid #ffffff19;
- background:linear-gradient(145deg,#ffffff0b,#ffffff03);
- box-shadow:0 25px 90px #0005;
- position:relative;overflow:hidden;
-}
-.chapter-card:before{
- content:"";position:absolute;top:0;left:15%;right:15%;
- height:1px;background:linear-gradient(90deg,transparent,#c87c8b,transparent);
-}
-.chapter-text{
- font-family:'Cormorant Garamond',serif;
- font-size:clamp(23px,5vw,31px);line-height:1.65;
- color:#f0dfdc;margin:0;
-}
-.chapter-text em{color:var(--rose)}
-.small-note{
- color:#a98e91;font-size:11px;line-height:1.9;
- max-width:470px;margin:22px auto 0;
-}
-.controls{
- display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+button:disabled{opacity:.25;cursor:not-allowed;transform:none}
+.hidden{display:none!important}
+.progress-info{
+ display:flex;justify-content:space-between;
+ color:var(--muted);font-size:9px;letter-spacing:2px;
  margin-top:30px;
 }
-.progress-wrap{
- position:fixed;bottom:0;left:0;width:100%;height:2px;
- background:#ffffff12;z-index:25;
+.progress{height:2px;background:#ffffff20;margin-top:10px}
+.fill{height:100%;background:var(--gold);width:0;transition:width .5s}
+.secret{
+ display:none;margin-top:25px;padding-top:22px;
+ border-top:1px solid #e7c69740;
+ color:var(--pink);font-family:'Cormorant Garamond',serif;
+ font-size:27px;font-style:italic;line-height:1.5;
 }
-.progress{height:100%;width:0;background:var(--rose);transition:width .5s}
-.chapter-count{
- position:fixed;bottom:17px;right:20px;color:#a98e91;
- font-size:9px;letter-spacing:2px;z-index:25;
+.secret.show{display:block;animation:reveal .8s ease}
+@keyframes reveal{
+ from{opacity:0;transform:translateY(12px)}
+ to{opacity:1;transform:none}
 }
-.rose{
- font-size:42px;margin:0 0 23px;
- filter:drop-shadow(0 0 20px #a52c4e77);
- animation:pulse 3s ease-in-out infinite;
+.special-list{margin-top:22px;text-align:left}
+.reason{
+ border:1px solid #e7c69738;border-radius:12px;
+ padding:13px 15px;margin:9px 0;
+ font-family:'Cormorant Garamond',serif;
+ font-size:21px;color:#f3dce7;
+ animation:reveal .5s ease;
 }
-@keyframes pulse{50%{transform:scale(1.12);filter:drop-shadow(0 0 30px #d65b7b)}}
-.quote{
- font-family:'Cormorant Garamond',serif;font-style:italic;
- color:var(--rose);font-size:clamp(24px,5vw,34px);
- margin:28px auto;max-width:600px;line-height:1.4;
+.reason.locked{color:#8e7e8d;opacity:.55}
+.final-title{
+ font-size:clamp(55px,13vw,88px);
+ color:var(--pink);line-height:.9;
 }
-.voice-box{
- border:1px solid #b85a733d;padding:27px 22px;
- margin-top:25px;max-width:440px;width:100%;
- background:#4b142322;
+#status{font-size:9px;color:var(--gold);letter-spacing:2px;margin-top:20px}
+#musicBar{
+ position:fixed;z-index:5;bottom:13px;left:50%;
+ transform:translateX(-50%);
+ display:flex;align-items:center;gap:10px;
+ background:#1b1322ed;border:1px solid #e7c69755;
+ border-radius:40px;padding:7px 12px;
+ backdrop-filter:blur(12px);
 }
-.voice-box p{color:var(--muted);font-size:12px;line-height:1.8}
-.voice-button{
- border:1px solid #c77a8d;background:#51182b;color:white;
- padding:14px 22px;cursor:pointer;letter-spacing:2px;font-size:10px;
-}
-.ending{
- font-size:clamp(30px,7vw,48px);line-height:1.3;
- max-width:700px;
-}
-.ending em{color:var(--rose)}
-.footer-note{
- margin-top:42px;color:#8e7378;font-size:9px;letter-spacing:3px;
-}
-@media(max-width:480px){
- .chapter-card{padding:29px 20px}
- .topbar{padding:14px 15px}
- .screen{padding-left:18px;padding-right:18px}
+#musicBar span{font-size:9px;color:var(--gold);letter-spacing:1px}
+#musicBar button{padding:9px 12px}
+#silence{font-size:9px;letter-spacing:3px;color:var(--gold);margin-top:25px}
+@media(max-width:450px){
+ .panel{padding:25px 19px}
+ .copy{font-size:13px}
 }
 </style>
 </head>
 
 <body>
-<div id="particles"></div>
-<div id="app">
+<div id="stars"></div>
 
-<header class="topbar">
- <div class="brand">A PRIVATE CONFESSION · BY ALI</div>
- <button class="sound" id="musicBtn" onclick="toggleMusic()">♫ MUSIC OFF</button>
-</header>
+<audio id="backgroundMusic" src="assets/romantic.mp3" loop preload="auto"></audio>
+<audio id="finalRevealAudio" src="assets/Areshey_Final_Reveal.mp3" preload="auto"></audio>
 
-<audio id="music" loop>
- <source src="assets/romantic.mp3" type="audio/mpeg">
-</audio>
-<audio id="voice">
- <source src="assets/ali-confession.mp3" type="audio/mpeg">
-</audio>
+<main id="app">
 
-<!-- INTRO -->
-<section class="screen active" id="s0">
- <div class="eyebrow">Something I haven't told you</div>
- <h1 class="hero-title">THE BEAUTIFUL<br><em>DANGER</em><br>OF WANTING YOU</h1>
- <div class="line"></div>
- <p class="subtitle">A STORY WITHOUT FILTERS · FOR ARESHEY</p>
- <p class="intro-copy">
- You have seen the things I can create.<br>
- But there is something I have kept<br>
- behind every smile, every joke,<br>
- and every little compliment.
- </p>
- <button class="primary" onclick="go(1)">LET ME SHOW YOU</button>
- <div class="footer-note">TAKE YOUR TIME · THERE IS NO RUSH</div>
-</section>
-
-<!-- CHAPTER 1 -->
-<section class="screen" id="s1">
- <div class="chapter-no">CHAPTER 01 · THE TRUTH</div>
- <h2 class="chapter-title">It started as <em>a joke.</em></h2>
- <div class="chapter-sub">But it didn't stay that way</div>
- <div class="chapter-card">
-  <p class="chapter-text">
-   At first, I teased you.<br>
-   I complimented you.<br>
-   I tried to make you smile.<br><br>
-   Then I started remembering the little things.
-   Your words. Your habits. Your favourite things.
-   And somewhere between all those conversations,
-   <em>you became someone I genuinely look forward to.</em>
-  </p>
+<!-- WELCOME -->
+<section id="welcome">
+ <div class="top">
+  <div class="eyebrow">A story made from feelings</div>
+  <h1>The Art of<br><em>Loving You</em></h1>
+  <div class="line"></div>
+  <div class="eyebrow">A PERSONAL JOURNEY BY ALI</div>
  </div>
- <div class="controls">
-  <button class="primary" onclick="go(2)">THERE'S MORE</button>
+
+ <div class="panel">
+  <div class="number">12 CHAPTERS • ONE HEART</div>
+  <h2>For Areshey.</h2>
+  <p class="copy">There are things I want you to know.
+Things I have felt, imagined and kept inside.
+
+I could have written just one message.
+But some feelings deserve their own journey.
+
+So, this is mine.</p>
+  <div class="actions">
+   <button class="primary" onclick="beginJourney()">BEGIN THE JOURNEY ✦</button>
+  </div>
+  <p class="copy" style="font-size:10px;margin-top:22px">Take your time. Every chapter has a little piece of my heart.</p>
  </div>
 </section>
 
-<!-- CHAPTER 2 -->
-<section class="screen" id="s2">
- <div class="chapter-no">CHAPTER 02 · THE WANT</div>
- <h2 class="chapter-title">I <em>want</em> you.</h2>
- <div class="chapter-sub">No jokes this time</div>
- <div class="chapter-card">
-  <p class="chapter-text">
-   I want to meet you, Areshey.<br>
-   Not just imagine it.<br>
-   Not just talk about it.<br><br>
-   I want to sit across from you,
-   hear your laughter without a screen,
-   look into your eyes and make memories
-   that we can actually call ours.
-   <em>I want something real with you.</em>
-  </p>
+<!-- CHAPTERS -->
+<section id="chapters" class="hidden">
+ <div class="top">
+  <div class="eyebrow">The Art of Loving You</div>
+  <div class="eyebrow" style="margin-top:8px">BY ALI</div>
  </div>
- <div class="controls">
-  <button class="primary" onclick="go(3)">KEEP GOING</button>
+
+ <div class="panel">
+  <div class="number" id="chapterNumber"></div>
+  <h2 id="chapterTitle"></h2>
+  <p class="copy" id="chapterText"></p>
+
+  <div id="chapterExtra"></div>
+
+  <div class="secret" id="chapterSecret"></div>
+
+  <div class="actions">
+   <button id="secretButton" onclick="revealSecret()">THERE'S MORE I WANT TO SAY ✧</button>
+  </div>
+
+  <div class="progress-info">
+   <span>OUR JOURNEY</span>
+   <span id="chapterCount"></span>
+  </div>
+  <div class="progress"><div class="fill" id="progressFill"></div></div>
+
+  <div class="actions">
+   <button id="backButton" onclick="goBack()">← BACK</button>
+   <button class="primary" id="nextButton" onclick="goNext()">NEXT CHAPTER →</button>
+  </div>
  </div>
 </section>
 
-<!-- CHAPTER 3 -->
-<section class="screen" id="s3">
- <div class="chapter-no">CHAPTER 03 · A LITTLE JEALOUS</div>
- <h2 class="chapter-title">My <em>jealous</em> side.</h2>
- <div class="chapter-sub">Something I won't pretend about</div>
- <div class="chapter-card">
-  <p class="chapter-text">
-   Yes, sometimes I get jealous.<br><br>
-   The thought of someone else making you
-   blush, getting that special smile,
-   or receiving the attention I wish
-   I could give you…<br><br>
-   <em>Well, I won't lie. It gets to me.</em><br><br>
-   Not because I own you.
-   Because I want to become someone
-   special to you too.
-  </p>
+<!-- FINAL REVEAL -->
+<section id="finalPage" class="hidden">
+ <div class="top">
+  <div class="eyebrow">THE LAST PAGE • THE REAL FEELING</div>
  </div>
- <p class="small-note">A little jealousy. A lot of affection. And always respect for your world.</p>
- <div class="controls">
-  <button class="primary" onclick="go(4)">SHOW ME MORE</button>
+ <div class="panel">
+  <div class="number">NO MORE WRITTEN WORDS</div>
+  <div class="final-title serif">Just<br>Listen.</div>
+  <div class="line"></div>
+  <p class="copy">Every chapter brought us here.
+
+Now, instead of reading my feelings,
+you can hear them.
+
+My singing.
+My words.
+My honest confession.
+
+All together. From me to you.</p>
+
+  <div id="silence">♪ THE MUSIC HAS ENDED. THIS MOMENT IS YOURS.</div>
+
+  <div class="actions">
+   <button class="primary" id="playButton" onclick="playFinalReveal()">PLAY MY CONFESSION ♡</button>
+  </div>
+  <div id="status">MADE WITH LOVE — BY ALI</div>
+
+  <div class="actions">
+   <button onclick="backToLastChapter()">← BACK TO CHAPTER 12</button>
+  </div>
  </div>
 </section>
 
-<!-- CHAPTER 4 -->
-<section class="screen" id="s4">
- <div class="chapter-no">CHAPTER 04 · THE POSSESSION</div>
- <h2 class="chapter-title">I want to be <em>your person.</em></h2>
- <div class="chapter-sub">Not a passing moment</div>
- <div class="chapter-card">
-  <p class="chapter-text">
-   I want to be the person you look for
-   when something good happens.<br><br>
-   The person whose messages make you smile.
-   The one who gets to pamper you,
-   tease you, care for you and make you
-   feel wanted.<br><br>
-   I want to hold your hand and pull you
-   a little closer. I want to feel that
-   closeness with you.<br><br>
-   <em>I want us to choose each other.</em>
-  </p>
- </div>
- <div class="controls">
-  <button class="primary" onclick="go(5)">ONE MORE THING</button>
- </div>
-</section>
+</main>
 
-<!-- CHAPTER 5 -->
-<section class="screen" id="s5">
- <div class="chapter-no">CHAPTER 05 · THE VULNERABILITY</div>
- <h2 class="chapter-title">The side you <em>haven't seen.</em></h2>
- <div class="chapter-sub">No performance. Just me.</div>
- <div class="chapter-card">
-  <p class="chapter-text">
-   Sometimes I don't know how to put
-   everything I feel into words.<br><br>
-   Sometimes I overthink a message.
-   Sometimes I wonder if I've said enough
-   or if you understand what I mean.<br><br>
-   But I don't want to hide behind
-   clever lines anymore.<br><br>
-   <em>I'm letting you see the real me.</em>
-  </p>
- </div>
- <div class="controls">
-  <button class="primary" onclick="go(6)">LET ME SAY IT</button>
- </div>
-</section>
-
-<!-- CHAPTER 6 -->
-<section class="screen" id="s6">
- <div class="chapter-no">CHAPTER 06 · THE CONFESSION</div>
- <div class="rose">🥀</div>
- <h2 class="chapter-title">This is <em>my heart.</em></h2>
- <div class="chapter-sub">For once, without hiding</div>
- <div class="chapter-card">
-  <p class="chapter-text">
-   Areshey, I like you.<br><br>
-   More than my teasing ever revealed.
-   More than my compliments ever explained.
-   More than I have had the courage to say.<br><br>
-   I want to know you deeply.
-   I want to meet you.
-   I want to make you feel loved,
-   appreciated and wanted.<br><br>
-   <em>I'm not hiding my feelings anymore.</em>
-  </p>
- </div>
- <div class="controls">
-  <button class="primary" onclick="go(7)">THERE'S ONE LAST THING</button>
- </div>
-</section>
-
-<!-- CHAPTER 7 -->
-<section class="screen" id="s7">
- <div class="chapter-no">CHAPTER 07 · THE VOICE</div>
- <div class="rose">♥</div>
- <h2 class="chapter-title">Now hear <em>me.</em></h2>
- <div class="chapter-sub">Not a character. Not a story. Ali.</div>
- <div class="chapter-card">
-  <p class="chapter-text">
-   You have read my words.<br>
-   You have seen my imagination.<br><br>
-   But I want you to hear the person
-   behind all of it.
-  </p>
- </div>
- <div class="voice-box">
-  <p>There's something I want to say in my own voice.</p>
-  <button class="voice-button" onclick="playVoice()">▶ PLAY MY CONFESSION</button>
-  <p id="voiceStatus">A little piece of my heart, in my own voice.</p>
- </div>
- <div class="controls">
-  <button class="primary" onclick="go(8)">THE LAST PAGE</button>
- </div>
-</section>
-
-<!-- ENDING -->
-<section class="screen" id="s8">
- <div class="eyebrow">The last page · But not the end</div>
- <div class="rose">🌹</div>
- <h2 class="ending serif">
-  I don't want to keep writing beautiful stories about you.<br><br>
-  <em>I want the chance to live one with you.</em>
- </h2>
- <div class="line"></div>
- <p class="intro-copy">
-  I've shown you the side of me that jokes,
-  the side that creates little universes,
-  and now the side that wants you in his real world.
- </p>
- <p class="quote">"This time, you haven't just seen what I can create. You've seen what I feel."</p>
- <p class="subtitle">WITH ALL THE HONESTY I HAVE · ALI</p>
- <div class="footer-note">THE BEAUTIFUL DANGER OF WANTING YOU</div>
- <div class="controls">
-  <button class="ghost" onclick="go(0)">EXPERIENCE AGAIN</button>
- </div>
-</section>
-
-<div class="progress-wrap"><div class="progress" id="progress"></div></div>
-<div class="chapter-count" id="counter">INTRO</div>
+<div id="musicBar">
+ <span>♫ BACKGROUND MUSIC</span>
+ <button id="musicButton" onclick="toggleMusic()">PAUSE</button>
 </div>
 
 <script>
-const total=8;
-let current=0;
-const music=document.getElementById('music');
-const voice=document.getElementById('voice');
-const musicBtn=document.getElementById('musicBtn');
+const chapters=[
+{
+ title:"The Beautiful Danger",
+ text:"I don't know exactly when it started.\nMaybe it was a conversation. Maybe a smile. Maybe something I cannot even explain.\n\nBut slowly, you became someone I wanted to know beyond the ordinary.\n\nAnd that is the beautiful danger of feelings: sometimes someone becomes special without even trying.",
+ secret:"I never planned to feel this much. Somehow, my heart found its own reason."
+},
+{
+ title:"Something About You",
+ text:"There is something about you that keeps catching my attention.\n\nIt's not just one thing. It's the way you express yourself, the little details, your personality and the way you make an ordinary moment feel different.\n\nI could keep trying to describe it, but maybe the truth is simpler: I genuinely admire you.",
+ secret:"You don't have to become anyone else to be special in my eyes."
+},
+{
+ title:"The Things I Hide",
+ text:"Sometimes I hold back words.\nNot because I have nothing to say, but because I am still finding the right way to express what I feel.\n\nThere are thoughts I keep to myself, little feelings that stay quietly in my heart.\n\nThis journey is my way of letting some of them out.",
+ secret:"If you could hear every unspoken thought, you would understand why I made this."
+},
+{
+ title:"A Mind Full Of You",
+ text:"You find your way into the most unexpected moments.\n\nA song playing somewhere. A quiet evening. A random thought. Something funny that I wish I could share with you.\n\nAnd suddenly, there you are again, in my mind.",
+ secret:"Some people become a thought you never get tired of returning to."
+},
+{
+ title:"The Way I Want You",
+ text:"I want to express my feelings without pretending to be someone I am not.\n\nI want the playful conversations, the teasing, the laughter and the moments where we can simply be ourselves.\n\nI want something genuine, where both people feel comfortable being honest.",
+ secret:"I don't want a perfect version of you. I want to appreciate the real you."
+},
+{
+ title:"A Little Jealousy",
+ text:"I won't pretend I never feel jealous.\nSometimes I do. A little.\n\nBut I know that caring about someone does not mean controlling them. Your freedom, your comfort and your choices matter.\n\nI want my feelings to make you feel appreciated, never restricted.",
+ secret:"I can be a little jealous and still respect your whole world."
+},
+{
+ title:"The Things I Imagine",
+ text:"Sometimes I imagine simple moments.\n\nA conversation that goes on longer than expected. A laugh that makes everything lighter. A day filled with little memories.\n\nNot a demand. Not an expectation. Just beautiful possibilities that cross my mind.",
+ secret:"If life gives us those moments, I hope we both enjoy them."
+},
+{
+ title:"No More Hiding",
+ text:"I have spent enough time trying to find perfect words.\n\nMaybe I don't need perfect sentences. Maybe I just need to be honest.\n\nI like you. I admire you. And I want you to understand that these feelings are real.",
+ secret:"This time, I don't want my feelings to remain hidden behind silence."
+},
+{
+ title:"If You Could See My Heart",
+ text:"Imagine if you could see the feelings behind every little message.\n\nThe care, the excitement, the thoughts I never sent, and the things I wanted to tell you but couldn't quite put into words.\n\nThis is only a glimpse of what I carry inside.",
+ secret:"I am showing you my heart, not asking you to carry it for me."
+},
+{
+ title:"Every Little Reason",
+ text:"There isn't always one big reason to care about someone.\n\nSometimes it is a collection of little things. A smile. A conversation. A quality. A moment. A feeling.\n\nI wanted to put those little reasons together, one by one.",
+ secret:"Twenty little reasons. And still, words can never explain everything."
+},
+{
+ title:"Before You Hear Me",
+ text:"We have reached the quietest part of this journey.\n\nThe words are slowing down. The background music is fading. There is nothing more to hide behind.\n\nThe next part will not be another written paragraph.\n\nIt will be my own voice.",
+ secret:"Take a breath. The final chapter is waiting."
+},
+{
+ title:"The Unfiltered Confession",
+ text:"This is where I stop trying to make every sentence perfect.\n\nI have written, imagined and expressed what I could through these chapters.\n\nBut there are things I want you to hear directly from me.\n\nWhen you are ready, turn the final page.",
+ secret:"No performance. No pressure. Just my voice and my honest feelings."
+}
+];
 
-function go(n){
- document.getElementById('s'+current).classList.remove('active');
- current=n;
- const next=document.getElementById('s'+current);
- next.classList.remove('active');
- void next.offsetWidth;
- next.classList.add('active');
- document.getElementById('progress').style.width=(n/total*100)+'%';
- document.getElementById('counter').textContent=
- n===0?'INTRO':n===8?'THE LAST PAGE':'CHAPTER '+String(n).padStart(2,'0')+' / 07';
- window.scrollTo({top:0,behavior:'smooth'});
+const reasons=[
+"Your smile.",
+"The way you express yourself.",
+"Your personality.",
+"Your little habits.",
+"Your sense of humour.",
+"Your way of thinking.",
+"Your expressions.",
+"The way you communicate.",
+"Your individuality.",
+"Your kindness.",
+"Your playful side.",
+"Your honesty.",
+"The little things you notice.",
+"The way you make me smile.",
+"Your thoughtful moments.",
+"The way you are yourself.",
+"The conversations we share.",
+"The memories we create.",
+"The person you are becoming.",
+"And simply, you."
+];
+
+let currentChapter=0;
+let secretOpened=false;
+let reasonUnlocked=0;
+let fading=false;
+
+const bg=document.getElementById("backgroundMusic");
+const finalAudio=document.getElementById("finalRevealAudio");
+
+function createStars(){
+ const layer=document.getElementById("stars");
+ for(let i=0;i<65;i++){
+  const s=document.createElement("span");
+  s.className="star";
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*100+"%";
+  s.style.animationDelay=Math.random()*4+"s";
+  layer.appendChild(s);
+ }
 }
 
-async function toggleMusic(){
- if(music.paused){
-  try{
-   await music.play();
-   musicBtn.textContent='♫ MUSIC ON';
-  }catch(e){
-   musicBtn.textContent='♫ ADD MUSIC FILE';
+function beginJourney(){
+ document.getElementById("welcome").classList.add("hidden");
+ document.getElementById("chapters").classList.remove("hidden");
+ bg.volume=.48;
+ bg.play().then(()=>{
+  document.getElementById("musicButton").textContent="PAUSE";
+ }).catch(()=>{});
+ renderChapter();
+}
+
+function renderChapter(){
+ const c=chapters[currentChapter];
+ document.getElementById("chapterNumber").textContent=
+ "CHAPTER "+String(currentChapter+1).padStart(2,"0")+" / 12";
+ document.getElementById("chapterTitle").textContent=c.title;
+ document.getElementById("chapterText").textContent=c.text;
+ document.getElementById("chapterSecret").textContent=c.secret;
+ document.getElementById("chapterSecret").classList.remove("show");
+ document.getElementById("secretButton").classList.remove("hidden");
+ document.getElementById("secretButton").textContent="THERE'S MORE I WANT TO SAY ✧";
+ document.getElementById("chapterExtra").innerHTML="";
+ secretOpened=false;
+
+ document.getElementById("chapterCount").textContent=(currentChapter+1)+" / 12";
+ document.getElementById("progressFill").style.width=((currentChapter+1)/12*100)+"%";
+ document.getElementById("backButton").disabled=currentChapter===0;
+ document.getElementById("nextButton").textContent=
+ currentChapter===11?"OPEN THE FINAL REVEAL ♡":"NEXT CHAPTER →";
+
+ if(currentChapter===9)showReasons();
+}
+
+function revealSecret(){
+ if(secretOpened)return;
+ secretOpened=true;
+ document.getElementById("chapterSecret").classList.add("show");
+ document.getElementById("secretButton").classList.add("hidden");
+}
+
+function showReasons(){
+ const area=document.getElementById("chapterExtra");
+ area.innerHTML=
+ '<div class="line"></div>'+
+ '<div class="number">20 LITTLE REASONS</div>'+
+ '<p class="copy">Open them one at a time.</p>'+
+ '<div class="special-list" id="reasonList"></div>'+
+ '<div class="actions"><button class="primary" id="reasonButton" onclick="unlockReason()">UNLOCK REASON 1 ✦</button></div>';
+ reasonUnlocked=0;
+ drawReasons();
+}
+
+function drawReasons(){
+ const list=document.getElementById("reasonList");
+ list.innerHTML=reasons.map((reason,i)=>{
+  if(i<reasonUnlocked){
+   return '<div class="reason">'+String(i+1).padStart(2,"0")+' — '+reason+'</div>';
   }
+  return '<div class="reason locked">'+String(i+1).padStart(2,"0")+' — A reason waiting to be discovered</div>';
+ }).join("");
+
+ const btn=document.getElementById("reasonButton");
+ if(reasonUnlocked===20){
+  btn.textContent="ALL 20 REASONS UNLOCKED ♡";
+  btn.disabled=true;
  }else{
-  music.pause();
-  musicBtn.textContent='♫ MUSIC OFF';
+  btn.textContent="UNLOCK REASON "+(reasonUnlocked+1)+" ✦";
  }
 }
 
-async function playVoice(){
- const status=document.getElementById('voiceStatus');
- try{
-  if(voice.paused){
-   await voice.play();
-   status.textContent='Playing… listen with your heart.';
-  }else{
-   voice.pause();
-   status.textContent='Paused.';
-  }
- }catch(e){
-  status.textContent='Add your recording at assets/ali-confession.mp3';
+function unlockReason(){
+ if(reasonUnlocked>=20)return;
+ reasonUnlocked++;
+ drawReasons();
+}
+
+function fadeBackground(){
+ if(fading)return Promise.resolve();
+ if(bg.paused||bg.volume<=0){
+  bg.pause();
+  return Promise.resolve();
+ }
+ fading=true;
+ return new Promise(resolve=>{
+  const startingVolume=bg.volume;
+  const duration=4000;
+  const interval=100;
+  let elapsed=0;
+  const timer=setInterval(()=>{
+   elapsed+=interval;
+   bg.volume=Math.max(0,startingVolume*(1-elapsed/duration));
+   if(elapsed>=duration){
+    clearInterval(timer);
+    bg.pause();
+    bg.currentTime=0;
+    bg.volume=.48;
+    document.getElementById("musicButton").textContent="PLAY";
+    fading=false;
+    resolve();
+   }
+  },interval);
+ });
+}
+
+async function goNext(){
+ const btn=document.getElementById("nextButton");
+ if(currentChapter===10){
+  btn.disabled=true;
+  btn.textContent="A MOMENT OF SILENCE...";
+  await fadeBackground();
+  currentChapter=11;
+  renderChapter();
+  window.scrollTo({top:0,behavior:"smooth"});
+  return;
+ }
+ if(currentChapter===11){
+  document.getElementById("chapters").classList.add("hidden");
+  document.getElementById("finalPage").classList.remove("hidden");
+  bg.pause();
+  bg.currentTime=0;
+  window.scrollTo({top:0,behavior:"smooth"});
+  return;
+ }
+ currentChapter++;
+ renderChapter();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function goBack(){
+ if(currentChapter<=0)return;
+ currentChapter--;
+ renderChapter();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function toggleMusic(){
+ if(bg.paused){
+  bg.play().then(()=>{
+   document.getElementById("musicButton").textContent="PAUSE";
+  }).catch(()=>{});
+ }else{
+  bg.pause();
+  document.getElementById("musicButton").textContent="PLAY";
  }
 }
-voice.addEventListener('ended',()=>{
- document.getElementById('voiceStatus').textContent='That was me, Areshey. ❤️';
-});
 
-// Floating cinematic particles
-const particleArea=document.getElementById('particles');
-for(let i=0;i<32;i++){
- const p=document.createElement('span');
- p.className='particle';
- p.style.left=Math.random()*100+'%';
- p.style.bottom=(-Math.random()*100)+'px';
- p.style.animationDuration=(9+Math.random()*14)+'s';
- p.style.animationDelay=(-Math.random()*18)+'s';
- p.style.opacity=Math.random()*.6;
- particleArea.appendChild(p);
+function playFinalReveal(){
+ bg.pause();
+ bg.currentTime=0;
+ finalAudio.play().then(()=>{
+  document.getElementById("status").textContent="PLAYING — FROM MY HEART ♡";
+  document.getElementById("playButton").textContent="PLAY AGAIN ↻";
+ }).catch(()=>{
+  document.getElementById("status").textContent="PLEASE CHECK THE FINAL AUDIO FILE";
+ });
 }
 
-// Stop background music when voice confession starts
-voice.addEventListener('play',()=>{
- if(!music.paused)music.pause();
- musicBtn.textContent='♫ MUSIC OFF';
+finalAudio.addEventListener("ended",()=>{
+ document.getElementById("status").textContent="THANK YOU FOR LISTENING ♡";
+ document.getElementById("playButton").textContent="REPLAY MY CONFESSION ↻";
 });
+
+function backToLastChapter(){
+ finalAudio.pause();
+ finalAudio.currentTime=0;
+ document.getElementById("finalPage").classList.add("hidden");
+ document.getElementById("chapters").classList.remove("hidden");
+ currentChapter=11;
+ renderChapter();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+createStars();
 </script>
 </body>
 </html>
-
